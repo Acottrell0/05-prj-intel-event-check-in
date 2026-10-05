@@ -26,6 +26,9 @@ const winningTeamMessage = document.getElementById('winningTeamMessage');
 const attendeeList = document.getElementById('attendeeList');
 const attendeeListCount = document.getElementById('attendeeListCount');
 const resetDataBtn = document.getElementById('resetDataBtn');
+const resetModal = document.getElementById('resetModal');
+const cancelResetBtn = document.getElementById('cancelResetBtn');
+const confirmResetBtn = document.getElementById('confirmResetBtn');
 
 // Team display information mapping
 const teamInfo = {
@@ -225,23 +228,41 @@ checkInForm.addEventListener('submit', function (event) {
   attendeeNameInput.focus();
 });
 
-// Reset data handler
+// Reset data modal handlers
 resetDataBtn.addEventListener('click', function () {
-  const confirmed = confirm('Are you sure you want to reset all attendance and check-in data?');
-  if (confirmed) {
-    totalAttendees = 0;
-    waterCount = 0;
-    zeroCount = 0;
-    powerCount = 0;
-    attendees = [];
+  resetModal.style.display = 'flex';
+});
 
-    localStorage.removeItem(storageKey);
+cancelResetBtn.addEventListener('click', function () {
+  resetModal.style.display = 'none';
+});
 
-    greetingElement.style.display = 'none';
-    greetingElement.textContent = '';
-
-    updateUI();
+// Close modal if clicking background
+resetModal.addEventListener('click', function (event) {
+  if (event.target === resetModal) {
+    resetModal.style.display = 'none';
   }
+});
+
+// Perform actual reset when confirmed in modal
+confirmResetBtn.addEventListener('click', function () {
+  totalAttendees = 0;
+  waterCount = 0;
+  zeroCount = 0;
+  powerCount = 0;
+  attendees = [];
+
+  localStorage.removeItem(storageKey);
+
+  // Hide modal
+  resetModal.style.display = 'none';
+
+  // Update greeting with reset confirmation
+  greetingElement.textContent = 'All attendance data has been successfully reset.';
+  greetingElement.className = 'success-message';
+  greetingElement.style.display = 'block';
+
+  updateUI();
 });
 
 // Initialize on page load

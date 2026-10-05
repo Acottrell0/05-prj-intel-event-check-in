@@ -116,6 +116,23 @@
       >
     </footer>
 
+    <!-- Custom Reset Confirmation Modal -->
+    <div id="resetModal" class="modal-backdrop" style="display: none;">
+      <div class="modal-box">
+        <div class="modal-icon">
+          <i class="fas fa-triangle-exclamation"></i>
+        </div>
+        <h3>Reset Check-In Data?</h3>
+        <p>This will clear all attendees, reset team counts to zero, and restore the progress bar. This cannot be undone.</p>
+        <div class="modal-actions">
+          <button type="button" id="cancelResetBtn" class="modal-btn cancel-btn">Cancel</button>
+          <button type="button" id="confirmResetBtn" class="modal-btn confirm-btn">
+            <i class="fas fa-trash-can"></i> Yes, Reset Data
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
