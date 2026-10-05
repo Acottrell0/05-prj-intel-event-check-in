@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Intel Sustainability Summit Check-In</title>
+    <meta name="description" content="Attendee check-in and team tracking system for the Intel Sustainability Summit." />
+    <meta property="og:title" content="Intel Sustainability Summit Check-In" />
+    <meta property="og:description" content="Attendee check-in and team tracking system for the Intel Sustainability Summit." />
     <!-- Add Font Awesome CSS -->
     <link
       rel="stylesheet"
@@ -32,6 +35,12 @@
       </div>
       <div class="progress-container">
         <div id="progressBar" class="progress-bar"></div>
+      </div>
+      <!-- Celebration feature when goal is reached -->
+      <div id="celebrationBanner" class="celebration-banner" style="display: none;">
+        <h2><i class="fas fa-trophy"></i> Attendance Goal Reached! 🎉</h2>
+        <p>Congratulations! We have reached our goal of 50 attendees!</p>
+        <div id="winningTeamMessage" class="winning-team-highlight"></div>
       </div>
     </div>
     <div class="container">
@@ -79,6 +88,21 @@
             <span class="team-name">⚡ Team Renewables</span>
             <span class="team-count" id="powerCount">0</span>
           </div>
+        </div>
+      </div>
+
+      <!-- Attendee List -->
+      <div class="attendee-list-section">
+        <div class="attendee-list-header">
+          <h3>
+            <i class="fas fa-list-check"></i> Checked-In Attendees (<span id="attendeeListCount">0</span>)
+          </h3>
+          <button type="button" id="resetDataBtn" class="reset-btn" title="Reset all check-in data">
+            <i class="fas fa-rotate-left"></i> Reset Data
+          </button>
+        </div>
+        <div id="attendeeList" class="attendee-list">
+          <p class="empty-state">No attendees checked in yet. Check in above to get started!</p>
         </div>
       </div>
     </div>

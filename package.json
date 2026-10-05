@@ -1,0 +1,15 @@
+{
+  "name": "intel-sustainability-summit-check-in",
+  "version": "1.0.0",
+  "description": "Intel Sustainability Summit Check-In App",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
